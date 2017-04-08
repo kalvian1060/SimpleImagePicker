@@ -7,7 +7,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Binder;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
@@ -17,8 +16,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-
-import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -96,11 +93,11 @@ public class MainActivity extends AppCompatActivity {
 
         private Uri uri;
         private String Path;
-        private String Status;
+        private String Somestring;
 
         setBitmap(Uri uri, String Status) {
             this.uri = uri;
-            this.Status = Status;
+            this.Somestring = Status;
         }
 
         setBitmap(String path) {
@@ -111,12 +108,8 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(Void... voids) {
 
-            if (Status != null) {
-                if (Status.equals("GALLERY")) {
-                    return FIlePath.getPath(MainActivity.this, uri);
-                } else {
-                    return Path;
-                }
+            if (Somestring != null) {
+                return FIlePath.getPath(MainActivity.this, uri);
             } else {
                 return Path;
             }
